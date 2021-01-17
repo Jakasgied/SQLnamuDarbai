@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `B-Prekė` (
   `Prekės id` varchar (20),
   `Kada užsakyta` varchar (20),
   `Ar išsiųsta` varchar (20),
-   PRIMARY KEY (`Pirkėjo id`),
    FOREIGN KEY (`Pirkėjo id`) REFERENCES `A-Pirkėjas`(`id`));
  
   

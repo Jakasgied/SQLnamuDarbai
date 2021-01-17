@@ -1,0 +1,66 @@
+
+CREATE TABLE IF NOT EXISTS `A-Pirkėjas` (
+  `id` int(6) unsigned NOT NULL,
+  `Vardas` varchar (20),
+  `Pavardė` varchar (20),
+  PRIMARY KEY (`id`));
+
+INSERT INTO `A-Pirkėjas` (`id`, `Vardas`, `Pavardė`) VALUES
+  ('1', 'Vardenis', 'Pavardenis'),
+  ('2', 'Jonas', 'Jonauskas'),
+  ('3', 'Manatas', 'Kalnas'),
+  ('4', 'Matas', 'Kalva'),
+  ('5', 'Viktoras', 'Viktorevic'),
+  ('6', 'Antanas', 'Antanevičius'),
+  ('7', 'Jonas', 'Jonauskas'),
+  ('8', 'Juozas', 'Juozelis'),
+  ('9', 'Viktoras', 'Viktor'),
+  ('10', 'Matas', 'Mantas');
+ 
+CREATE TABLE IF NOT EXISTS `B-Prekė` (
+  `id` int(6) unsigned NOT NULL,
+  `Pavadinimas` varchar (20),
+  `Kaina` varchar (20),
+  `Kuriame sandėlyje` varchar (20),
+  PRIMARY KEY (`id`));
+  
+  INSERT INTO `B-Prekė` (`id`, `Pavadinimas`, `Kaina`, `Kuriame sandėlyje`) VALUES
+  ('1', 'Kompiuteris', '499', '1'),
+  ('2', 'Plančetinis', '299', '1'),
+  ('3', 'Spinta', '199', '2'),
+  ('4', 'Kėdė', '49', '2'),
+  ('5', 'DVD diskai', '3.99', '3'),
+  ('6', 'Kremas', '2.99', '4'),
+  ('7', 'Šepetukas', '2.49', '4'),
+  ('8', 'Kvepalai', '59', '4'),
+  ('9', 'Rankšluostis', '2.99', '4');
+  
+  CREATE TABLE IF NOT EXISTS `C-Užsakymai` (
+  `Pirkėjo id` int(6) unsigned NOT NULL,
+  `Prekės id` varchar (20),
+  `Kada užsakyta` varchar (20),
+  `Ar išsiųsta` varchar (20),
+   PRIMARY KEY (`Pirkėjo id`),
+   FOREIGN KEY (`Pirkėjo id`) REFERENCES `A-Pirkėjas`(`id`));
+ 
+  
+  INSERT INTO `C-Užsakymai` (`Pirkėjo id`, `Prekės id`, `Kada užsakyta`, `Ar išsiųsta`) VALUES
+  ('1', '1', '2021-01-13', '0'),
+  ('5', '2', '2021-01-13', '0'),
+  ('5', '4', '2021-01-13', '1'),
+  ('3', '2', '2021-01-10', '1'),
+  ('2', '5', '2021-01-12', '0'),
+  ('7', '7', '2021-01-09', '1'),
+  ('7', '8', '2021-01-09', '1');
+  
+  CREATE TABLE IF NOT EXISTS `D-Sandelis` (
+  `id` int(6) unsigned NOT NULL,
+  `Sandelio pavadinimas` varchar (20),
+  `Sandelio adresas` varchar (20),
+   PRIMARY KEY (`id`));
+    
+  INSERT INTO `D-Sandelis` (`id`, `Sandelio pavadinimas`, `Sandelio adresas`) VALUES
+  ('1', 'Rotuva', 'Kauno'),
+  ('2', 'Pajūris', 'Klaipėda'),
+  ('3', 'Laisvės', 'Vilnius'),
+  ('4', 'Sandėlinijo', 'Panevežys');

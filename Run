@@ -1,0 +1,24 @@
+SELECT `Vardas`,`Pavardė` FROM `A-Pirkėjas`;
+
+SELECT * FROM `C-Užsakymai`
+WHERE `Pirkėjo id` = 5;
+
+SELECT `Pavadinimas`, `Kaina` FROM `B-Prekė`
+WHERE `Kuriame sandėlyje` = 2;
+
+SELECT `Sandelio pavadinimas`, `Sandelio adresas` FROM `D-Sandelis`
+WHERE `id` =4;
+
+SELECT * FROM `B-Prekė`
+WHERE `Kaina` > 50;
+
+SELECT * FROM `A-Pirkėjas`
+WHERE `Vardas`= 'Jonas';
+
+SELECT * FROM `C-Užsakymai`
+WHERE `Kada užsakyta` < '2021-01-10';
+
+SELECT * FROM `A-Pirkėjas` 
+WHERE `A-Pirkėjas`.`id`=`C-Užsakymai`.`Pirkėjo id`;
+
+
